@@ -2,7 +2,7 @@ import logoDesign from "../assets/Design.svg";
 import logoBrand from "../assets/brand.svg";
 import icoList from "../assets/list.svg";
 import icoAdd from "../assets/userAdd.svg";
-import "../style/App.css";
+import "../style/Navbar.css";
 
 export default function Navbar() {
   return (
