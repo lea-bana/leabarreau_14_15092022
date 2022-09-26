@@ -1,5 +1,6 @@
-import "./App.css";
+import "../style/App.css";
+import Navbar from "../components/Navbar";
 
 export default function App() {
-  return <h1>HRnet</h1>;
+  return <Navbar />;
 }
