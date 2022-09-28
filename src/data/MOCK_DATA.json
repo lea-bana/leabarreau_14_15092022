@@ -1,0 +1,67 @@
+[
+  {
+    "id": 96,
+    "first_name": "Peggi",
+    "last_name": "Brastead",
+    "date_Of_birth": "1997/02/11",
+    "street": "5502 John Wall Circle",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "state_abbrev": "MO",
+    "zip_code": "64136",
+    "start_date": "2000/05/14",
+    "department": "Marketing"
+  },
+  {
+    "id": 97,
+    "first_name": "Deeyn",
+    "last_name": "Catlow",
+    "date_Of_birth": "2023/06/14",
+    "street": "42981 Golf View Hill",
+    "city": "Memphis",
+    "state": "Tennessee",
+    "state_abbrev": "TN",
+    "zip_code": "38104",
+    "start_date": "2010/08/16",
+    "department": "Accounting"
+  },
+  {
+    "id": 98,
+    "first_name": "Eloise",
+    "last_name": "Dybell",
+    "date_Of_birth": "1961/11/24",
+    "street": "12 Raven Junction",
+    "city": "Gaithersburg",
+    "state": "Maryland",
+    "state_abbrev": "MD",
+    "zip_code": "20883",
+    "start_date": "2009/06/19",
+    "department": "Business Development"
+  },
+  {
+    "id": 99,
+    "first_name": "Way",
+    "last_name": "Burgin",
+    "date_Of_birth": "1977/12/11",
+    "street": "2 5th Avenue",
+    "city": "Richmond",
+    "state": "Virginia",
+    "state_abbrev": "VA",
+    "zip_code": "23213",
+    "start_date": "2014/02/12",
+    "department": "Training"
+  },
+  {
+    "id": 100,
+    "first_name": "Rafa",
+    "last_name": "Klemt",
+    "date_Of_birth": "1973/08/27",
+    "street": "56218 Oneill Drive",
+    "city": "Fresno",
+    "state": "California",
+    "state_abbrev": "CA",
+    "zip_code": "93773",
+    "start_date": "2019/11/11",
+    "department": "Business Development"
+  }
+]

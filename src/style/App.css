@@ -18,6 +18,10 @@ h1 {
   --tertiary: #cad3ae;
   --light: #fff;
   --dark: #072010;
+  --error: #f95;
+  --disabled: #cfcfcf;
+  --table-row: #eef1e3;
+  --table-hover: #cad3ae;
 }
 
 * {
@@ -26,4 +30,11 @@ h1 {
 
 body {
   margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
 }

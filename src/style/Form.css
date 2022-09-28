@@ -53,7 +53,8 @@
 
 .add-employee-button {
   display: block;
-  width: 100%;
+  margin: 2rem auto 0;
+  width: 30%;
   padding: 10px;
   font-size: 1rem;
   font-weight: bold;
@@ -62,4 +63,12 @@
   border-radius: 0.5rem;
   background-color: var(--tertiary);
   color: #fff;
+}
+
+.add-employee-button:disabled,
+.add-employee-button[disabled],
+.add-employee-button:disabled:hover,
+.add-employee-button[disabled]:hover {
+  background-color: var(--disabled);
+  cursor: not-allowed;
 }
