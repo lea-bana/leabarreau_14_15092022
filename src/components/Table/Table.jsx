@@ -12,29 +12,12 @@ import TableFilter from "./TableFilter";
 
 export default function Table() {
   let employeesList = JSON.parse(localStorage.getItem("employeesList")) || [];
+  // console.log(employeesList);
+
   // useMemo hook to avoid re-rendering until the data changes
   const columns = useMemo(() => TABLE_COLUMNS, []);
   // const data = useMemo(() => EMPLOYEES_LIST, []);
   const data = useMemo(() => employeesList, []);
-
-  // // update table with new employee data from local storage
-  // const [employees, setEmployees] = useState(data);
-  // const newEmployee = JSON.parse(localStorage.getItem('newEmployee'));
-  // if (localStorage.length > 0) {
-  //   newEmployee.id = `${EMPLOYEES_LIST.length}`;
-  //   setEmployees({...employees, newEmployee});
-  // // Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
-  // // localStorage.clear();
-  // }
-
-  // update table with new employee data from local storage
-  // const newEmployee = JSON.parse(localStorage.getItem("newEmployee"));
-  // if (localStorage.length > 0) {
-  //   EMPLOYEES_LIST.push(newEmployee);
-  //   newEmployee.id = `${EMPLOYEES_LIST.length}`;
-  //   localStorage.clear();
-  // }
-
   // table instance
   const tableInstance = useTable(
     {
@@ -45,7 +28,6 @@ export default function Table() {
     useSortBy,
     usePagination
   );
-
   // table props to define table instance
   const {
     getTableProps,
@@ -64,7 +46,6 @@ export default function Table() {
     state,
     setGlobalFilter,
   } = tableInstance;
-
   // table head content mapping for rendering
   const theadContent = headerGroups.map((headerGroup) => {
     return (
@@ -80,7 +61,6 @@ export default function Table() {
       </tr>
     );
   });
-
   // table body content mapping for rendering
   const tbodyContent = page.map((row) => {
     prepareRow(row);
@@ -92,10 +72,8 @@ export default function Table() {
       </tr>
     );
   });
-
   // handle table state for different options
   const { globalFilter, pageIndex, pageSize } = state;
-
   return (
     <section>
       <h3>{`${employeesList.length} currently employed`}</h3>
@@ -133,7 +111,6 @@ export default function Table() {
         </span>
         <span>
           <strong>
-            {pageIndex + 1} of {pageOptions.length}
             Page {pageIndex + 1} of {pageOptions.length}
           </strong>
         </span>
