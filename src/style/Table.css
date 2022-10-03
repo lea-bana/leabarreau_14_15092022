@@ -24,6 +24,7 @@ h3 {
 #employees {
   border-collapse: collapse;
   width: 100%;
+  border: none;
 }
 #employees thead :nth-child(2) > * {
   /* font-weight: normal; */
@@ -52,6 +53,7 @@ h3 {
 .table-navigation {
   display: flex;
   justify-content: center;
+  align-items: baseline;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -72,6 +74,7 @@ input,
 button {
   border-radius: 5px;
   border: 1px solid var(--secondary);
+  line-height: 1.25rem;
 }
 .table-navigation button {
   cursor: pointer;
