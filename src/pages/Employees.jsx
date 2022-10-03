@@ -1,4 +1,4 @@
-import Table from "../components/Table";
+import Table from "../components/Table/Table.jsx";
 import { useEffect } from "react";
 
 export default function Employees() {
