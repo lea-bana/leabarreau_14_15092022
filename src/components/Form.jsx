@@ -20,6 +20,7 @@ export default function Form() {
 
   const [newEmployee, setNewEmployee] = useState(initialState);
   const [modal, setModal] = useState(false);
+  const Toggle = () => setModal(!modal);
 
   // function isDisabled(inputValue) {
   //   return inputValue === '';
@@ -28,7 +29,7 @@ export default function Form() {
   // console.log(newEmployee.every(isDisabled));
   // newEmployee.every is not a function
 
-  const btn =
+  const submit =
     // isDisabled(newEmployee) ? ( // ne fonctionne pas
     // newEmployee !== '' ? ( // reste disabled mm si tous les champs sont remplis
 
@@ -167,13 +168,13 @@ export default function Form() {
           autoComplete="off"
         />
       </div>
-      {btn}
+      {submit}
       <Modal
         show={modal}
-        // close={Toggle}
+        close={Toggle}
         title={"Confirmation"}
-        msg={"New collaborator"}
-        sub={"successfully registred"}
+        sub={"New collaborator"}
+        msg={"successfully registred"}
       />
     </form>
   );
