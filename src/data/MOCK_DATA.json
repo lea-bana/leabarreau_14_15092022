@@ -7,7 +7,7 @@
     "street": "5502 John Wall Circle",
     "city": "Kansas City",
     "state": "Missouri",
-    "stateAbbrev": "MO",
+    "abbrev": "MO",
     "zipCode": "64136",
     "startDate": "2000/05/14",
     "department": "Marketing"
@@ -20,7 +20,7 @@
     "street": "42981 Golf View Hill",
     "city": "Memphis",
     "state": "Tennessee",
-    "stateAbbrev": "TN",
+    "abbrev": "TN",
     "zipCode": "38104",
     "startDate": "2010/08/16",
     "department": "Accounting"
@@ -33,7 +33,7 @@
     "street": "12 Raven Junction",
     "city": "Gaithersburg",
     "state": "Maryland",
-    "stateAbbrev": "MD",
+    "abbrev": "MD",
     "zipCode": "20883",
     "startDate": "2009/06/19",
     "department": "Business Development"
@@ -46,7 +46,7 @@
     "street": "2 5th Avenue",
     "city": "Richmond",
     "state": "Virginia",
-    "stateAbbrev": "VA",
+    "abbrev": "VA",
     "zipCode": "23213",
     "startDate": "2014/02/12",
     "department": "Training"
@@ -59,7 +59,7 @@
     "street": "56218 Oneill Drive",
     "city": "Fresno",
     "state": "California",
-    "stateAbbrev": "CA",
+    "abbrev": "CA",
     "zipCode": "93773",
     "startDate": "2019/11/11",
     "department": "Business Development"
