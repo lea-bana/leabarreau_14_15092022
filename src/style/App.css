@@ -13,7 +13,7 @@ h1 {
 /* COLORS */
 :root {
   --colored-bg: #fafbf9;
-  --primary: #483e37;
+  --primary: #345429;
   --secondary: #6c6753;
   --tertiary: #cad3ae;
   --light: #fff;
@@ -21,7 +21,6 @@ h1 {
   --error: #f95;
   --disabled: #cfcfcf;
   --table-row: #eef1e3;
-  --table-hover: #cad3ae;
 }
 
 * {
@@ -32,9 +31,20 @@ body {
   margin: 0;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   text-align: center;
+  font-family: Open Sans Condensed;
 }
+
 a {
   text-decoration: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
 }

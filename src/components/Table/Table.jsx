@@ -1,7 +1,7 @@
 import { TABLE_COLUMNS } from "./tableColumns";
 import EMPLOYEE_LIST from "../../data/MOCK_DATA.json";
 import "../../style/Table.css";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import React, { useMemo } from "react";
 
 export default function Table() {
@@ -11,10 +11,13 @@ export default function Table() {
   console.log(EMPLOYEE_LIST.length);
 
   // table instance
-  const tableInstance = useTable({
-    columns: columns,
-    data: data,
-  });
+  const tableInstance = useTable(
+    {
+      columns: columns,
+      data: data,
+    },
+    useSortBy
+  );
 
   // table props to define table instance
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -25,7 +28,12 @@ export default function Table() {
     return (
       <tr {...headerGroup.getHeaderGroupProps()}>
         {headerGroup.headers.map((column) => (
-          <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+          <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+            {column.render("Header")}
+            <span>
+              {column.isSorted ? (column.isSortedDesc ? " ▾" : " ▴") : ""}{" "}
+            </span>
+          </th>
         ))}
       </tr>
     );
