@@ -1,15 +1,38 @@
 import { TABLE_COLUMNS } from "./tableColumns";
-import EMPLOYEE_LIST from "../../data/MOCK_DATA.json";
+import EMPLOYEES_LIST from "../../data/MOCK_DATA.json";
 import "../../style/Table.css";
-import { useTable, useSortBy, useGlobalFilter } from "react-table";
-import React, { useMemo } from "react";
+import {
+  useTable,
+  useSortBy,
+  useGlobalFilter,
+  usePagination,
+} from "react-table";
+import React, { useState, useMemo } from "react";
 import TableFilter from "./TableFilter";
 
 export default function Table() {
   // useMemo hook to avoid re-rendering until the data changes
   const columns = useMemo(() => TABLE_COLUMNS, []);
-  const data = useMemo(() => EMPLOYEE_LIST, []);
-  console.log(EMPLOYEE_LIST.length);
+  const data = useMemo(() => EMPLOYEES_LIST, []);
+  console.log(EMPLOYEES_LIST.length);
+
+  // // update table with new employee data from local storage
+  // const [employees, setEmployees] = useState(data);
+  // const newEmployee = JSON.parse(localStorage.getItem('newEmployee'));
+  // if (localStorage.length > 0) {
+  //   newEmployee.id = `${EMPLOYEES_LIST.length}`;
+  //   setEmployees({...employees, newEmployee});
+  // // Error: Too many re-renders. React limits the number of renders to prevent an infinite loop.
+  // // localStorage.clear();
+  // }
+
+  // update table with new employee data from local storage
+  const newEmployee = JSON.parse(localStorage.getItem("newEmployee"));
+  if (localStorage.length > 0) {
+    EMPLOYEES_LIST.push(newEmployee);
+    newEmployee.id = `${EMPLOYEES_LIST.length}`;
+    localStorage.clear();
+  }
 
   // table instance
   const tableInstance = useTable(
@@ -18,7 +41,8 @@ export default function Table() {
       data: data,
     },
     useGlobalFilter,
-    useSortBy
+    useSortBy,
+    usePagination
   );
 
   // table props to define table instance
@@ -26,7 +50,15 @@ export default function Table() {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    page,
+    nextPage,
+    canNextPage,
+    previousPage,
+    canPreviousPage,
+    pageOptions,
+    gotoPage,
+    pageCount,
+    setPageSize,
     prepareRow,
     state,
     setGlobalFilter,
@@ -49,7 +81,7 @@ export default function Table() {
   });
 
   // table body content mapping for rendering
-  const tbodyContent = rows.map((row) => {
+  const tbodyContent = page.map((row) => {
     prepareRow(row);
     return (
       <tr {...row.getRowProps()}>
@@ -60,17 +92,62 @@ export default function Table() {
     );
   });
 
-  // handle table state for filtering data with search bar component
-  const { globalFilter } = state;
+  // handle table state for different options
+  const { globalFilter, pageIndex, pageSize } = state;
 
   return (
     <section>
-      <h3>{`${EMPLOYEE_LIST.length} currently employed`}</h3>
+      <h3>{`${EMPLOYEES_LIST.length} currently employed`}</h3>
       <TableFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <table id="employees" {...getTableProps()}>
         <thead>{theadContent}</thead>
         <tbody {...getTableBodyProps()}>{tbodyContent}</tbody>
       </table>
+      <div className="table-navigation">
+        Show
+        <select
+          id="showEntries"
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+        >
+          {[10, 25, 50, 100].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              {pageSize}
+            </option>
+          ))}
+        </select>
+        entries
+        <span>
+          <strong>∣</strong> Go to page{" "}
+          <input
+            type="number"
+            className="go-to-page"
+            defaultValue={pageIndex + 1}
+            onChange={(e) => {
+              const pageNumber = e.target.value ? Number(e.target.value) : 0;
+              gotoPage(pageNumber);
+            }}
+          />
+        </span>
+        <span>
+          Page{" "}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>
+        </span>
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          ⏮ First
+        </button>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          ⯇ Previous
+        </button>
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          Next ⯈
+        </button>
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          Last ⏭
+        </button>
+      </div>
     </section>
   );
 }

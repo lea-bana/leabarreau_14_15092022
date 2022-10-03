@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAsyncDebounce } from "react-table";
+import search from "../../assets/ico-search.svg";
 
 export default function TableFilter({ filter, setFilter }) {
   const [value, setValue] = useState(filter);
@@ -9,7 +10,7 @@ export default function TableFilter({ filter, setFilter }) {
   }, 500);
   return (
     <span className="search">
-      🔎 Search{" "}
+      <img src={search} alt="search icon" className="search-icon" />
       <input
         type="text"
         value={value || ""}

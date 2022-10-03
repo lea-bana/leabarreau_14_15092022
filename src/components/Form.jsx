@@ -18,29 +18,6 @@ export default function Form() {
 
   const [addEmployee, setAddEmployee] = useState(initialState);
 
-  const handleChange = (e) => {
-    setAddEmployee({ ...addEmployee, [e.target.id]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newEmployee = {
-      firstName: addEmployee.firstName,
-      lastName: addEmployee.lastName,
-      dateOfBirth: addEmployee.dateOfBirth,
-      startDate: addEmployee.startDate,
-      street: addEmployee.street,
-      city: addEmployee.city,
-      state: addEmployee.state,
-      zipCode: addEmployee.zipCode,
-      department: addEmployee.department,
-    };
-
-    console.log({ ...newEmployee });
-    localStorage.setItem("newEmployee", JSON.stringify(newEmployee));
-  };
-
   const {
     firstName,
     lastName,
@@ -57,11 +34,11 @@ export default function Form() {
     firstName === "" ||
     lastName === "" ||
     dateOfBirth === "" ||
-    startDate === "" ||
     street === "" ||
     city === "" ||
     state === "" ||
     zipCode === "" ||
+    startDate === "" ||
     department === "" ? (
       <button type="submit" className="add-employee-button" disabled>
         Add an employee
@@ -71,6 +48,29 @@ export default function Form() {
         Add an employee
       </button>
     );
+
+  const handleChange = (e) => {
+    setAddEmployee({ ...addEmployee, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newEmployee = {
+      first_name: addEmployee.firstName,
+      last_name: addEmployee.lastName,
+      date_Of_birth: addEmployee.dateOfBirth,
+      start_date: addEmployee.startDate,
+      street: addEmployee.street,
+      city: addEmployee.city,
+      state: addEmployee.state,
+      zip_code: addEmployee.zipCode,
+      department: addEmployee.department,
+    };
+
+    localStorage.setItem("newEmployee", JSON.stringify(newEmployee));
+    setAddEmployee(initialState);
+  };
 
   return (
     <form action="" id="add-employee-form" onSubmit={handleSubmit}>
@@ -110,16 +110,7 @@ export default function Form() {
           autoComplete="off"
         />
       </div>
-      <div className="input-wrapper">
-        <label htmlFor="startDate">Start Date</label>
-        <input
-          type="date"
-          id="startDate"
-          value={startDate}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-      </div>
+
       <div className="input-wrapper">
         <label htmlFor="street">Street</label>
         <input
@@ -159,6 +150,16 @@ export default function Form() {
           onChange={handleChange}
           autoComplete="off"
         />
+        <div className="input-wrapper">
+          <label htmlFor="startDate">Start Date</label>
+          <input
+            type="date"
+            id="startDate"
+            value={startDate}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        </div>
       </div>
       <div className="input-wrapper">
         <label htmlFor="department">Department</label>
@@ -171,14 +172,6 @@ export default function Form() {
         />
       </div>
       {btn}
-      <section className="input-alert">
-        {/* {wrongEntries &&
-            (
-              <small className="input-alert--msg">
-                Wrong email or password, please check
-              </small>
-            )} */}
-      </section>
     </form>
   );
 }
