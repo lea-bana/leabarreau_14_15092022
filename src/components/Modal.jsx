@@ -12,10 +12,6 @@ export default function Modal({ show, close, title, sub, msg }) {
     employeesList(`/employees`);
   }
 
-  // setTimeout(() => {
-  //     employeesList(`/employees`)
-  //   }, 8000);
-
   return createPortal(
     <>
       {show ? (

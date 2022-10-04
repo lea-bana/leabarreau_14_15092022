@@ -4,7 +4,7 @@ import Modal from "../components/Modal.jsx";
 import Dropdown from "../components/Dropdown";
 import Field from "./Field";
 import "../style/Form.css";
-import EMPLOYEES_LIST from "../data/MOCK_DATA.json";
+//import EMPLOYEES_LIST from "../data/MOCK_DATA.json";
 import STATES from "../data/MOCK_STATES.json";
 import FORM_DATA from "../data/FORM_DATA.json";
 import DEPARTMENTS from "../data/MOCK_DEPARTMENTS.json";
@@ -54,8 +54,13 @@ export default function Form() {
   };
 
   // GET DATA
-  let employeesList =
-    JSON.parse(window.localStorage.getItem("employeesList")) || EMPLOYEES_LIST;
+  //   let employeesList =
+  //     JSON.parse(window.localStorage.getItem("employeesList")) || EMPLOYEES_LIST; + MOCKES
+  let employeesList = [];
+  let employeesListLS = localStorage.getItem("employeesList");
+  if (employeesListLS) {
+    employeesList = JSON.parse(employeesListLS);
+  }
 
   // ON SUBMIT
   const handleSubmit = (e) => {

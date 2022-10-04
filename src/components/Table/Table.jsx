@@ -1,5 +1,4 @@
 import { TABLE_COLUMNS } from "./tableColumns";
-import EMPLOYEES_LIST from "../../data/MOCK_DATA.json";
 import "../../style/Table.css";
 import {
   useTable,
