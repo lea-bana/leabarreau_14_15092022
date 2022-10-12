@@ -17,6 +17,8 @@ export default function Table() {
   const columns = useMemo(() => TABLE_COLUMNS, []);
   const data = useMemo(() => employeesList, []);
 
+  console.log(employeesList);
+
   // TABLE INSTANCE
   const tableInstance = useTable(
     {
@@ -55,7 +57,7 @@ export default function Table() {
           <th {...column.getHeaderProps(column.getSortByToggleProps())}>
             {column.render("Header")}
             <span>
-              {column.isSorted ? (column.isSortedDesc ? " ▾" : " ▴") : ""}{" "}
+              {column.isSorted ? (column.isSortedDesc ? " ▾" : " ▴") : ""}
             </span>
           </th>
         ))}
@@ -78,57 +80,69 @@ export default function Table() {
   // handle table state for different options
   const { globalFilter, pageIndex, pageSize } = state;
   return (
-    <section>
-      <h3>{`${employeesList.length} currently employed`}</h3>
-      <TableFilter filter={globalFilter} setFilter={setGlobalFilter} />
-      <table id="employees" {...getTableProps()}>
-        <thead>{theadContent}</thead>
-        <tbody {...getTableBodyProps()}>{tbodyContent}</tbody>
-      </table>
-      <div className="table-navigation">
-        Show
-        <select
-          id="showEntries"
-          value={pageSize}
-          onChange={(e) => setPageSize(Number(e.target.value))}
-        >
-          {[10, 25, 50, 100].map((pageSize) => (
-            <option key={pageSize} value={pageSize}>
-              {pageSize}
-            </option>
-          ))}
-        </select>
-        entries
-        <span>
-          <strong>∣</strong> Go to page{" "}
-          <input
-            type="number"
-            className="go-to-page"
-            defaultValue={pageIndex + 1}
-            onChange={(e) => {
-              const pageNumber = e.target.value ? Number(e.target.value) : 0;
-              gotoPage(pageNumber);
-            }}
-          />
-        </span>
+    <section id="table">
+      <header>
+        <div className="show-entries">
+          Show
+          <select
+            id="showEntries"
+            value={pageSize}
+            onChange={(e) => setPageSize(Number(e.target.value))}
+          >
+            {[10, 25, 50, 100].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+          entries
+        </div>
+        <h3>{`currently ${employeesList.length} employees`}</h3>
+        <TableFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      </header>
+      <main>
+        <table id="employees" {...getTableProps()}>
+          <thead>{theadContent}</thead>
+          <tbody {...getTableBodyProps()}>{tbodyContent}</tbody>
+        </table>
+      </main>
+      <footer className="table-footer">
         <span>
           <strong>
             Page {pageIndex + 1} of {pageOptions.length}
           </strong>
         </span>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          « First
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          ⯇ Previous
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          Next ⯈
-        </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          Last »
-        </button>
-      </div>
+        <span>
+          <button
+            className="table-footer--btn"
+            onClick={() => gotoPage(0)}
+            disabled={!canPreviousPage}
+          >
+            « First
+          </button>
+          <button
+            className="table-footer--btn"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            ‹ Previous
+          </button>
+          <button
+            className="table-footer--btn"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            Next ›
+          </button>
+          <button
+            className="table-footer--btn"
+            onClick={() => gotoPage(pageCount - 1)}
+            disabled={!canNextPage}
+          >
+            Last »
+          </button>
+        </span>
+      </footer>
     </section>
   );
 }
