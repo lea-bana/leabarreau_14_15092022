@@ -127,7 +127,7 @@ export default function Table() {
         </span>
         <span className="table-footer--nav">
           <button
-            className="table-footer--btn"
+            className="table-nav--btn"
             onClick={() => gotoPage(0)}
             disabled={!canPreviousPage}
           >

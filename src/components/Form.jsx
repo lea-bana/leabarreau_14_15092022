@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import icoAdd from "../assets/ico-user-add.svg";
 import Modal from "../components/Modal.jsx";
@@ -20,13 +20,13 @@ export default function Form() {
   function goTo() {
     redirectTo(`/employees`);
   }
-  useEffect(() => {
-    if (modal) {
-      setTimeout(() => {
-        redirectTo(`/employees`);
-      }, 8000);
-    }
-  }, [modal, redirectTo]);
+  // useEffect(() => {
+  //   if (modal) {
+  //     setTimeout(() => {
+  //       redirectTo(`/employees`);
+  //     }, 8000);
+  //   }
+  // }, [modal, redirectTo]);
 
   // FORM SETTINGS
 
@@ -51,8 +51,8 @@ export default function Form() {
     !newEmployee.street ||
     !newEmployee.city ||
     !newEmployee.zipCode ||
-    !newEmployee.stateAbbrev ||
     !newEmployee.startDate ||
+    !newEmployee.stateAbbrev ||
     !newEmployee.department ? (
       <button type="submit" className="add-employee-button" disabled>
         Save
@@ -86,15 +86,18 @@ export default function Form() {
 
     // COMPLETE / CORRECT DATA
     newEmployee.id = employeesList.length;
+    newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
+    newEmployee.dateOfBirth = newEmployee.dateOfBirth.replace(/-/g, "/");
 
     // STORE DATA
     window.localStorage.setItem("employeesList", JSON.stringify(employeesList));
 
-    // RESET FORM
-    setNewEmployee(initialState);
-
     // OPEN MODAL
     setModal(!modal);
+
+    // RESET FORM
+    setNewEmployee({ ...newEmployee }, e.target.reset());
+    setNewEmployee(initialState);
   };
 
   return (

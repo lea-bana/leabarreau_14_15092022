@@ -40,6 +40,17 @@
   width: 1rem;
   margin-right: 0.25rem;
 }
+.search-icon {
+  width: 6%;
+  margin-right: 2%;
+}
+.search {
+  display: flex;
+  justify-content: flex-end;
+}
+.input-search {
+  border-radius: 5px;
+}
 
 .table-header--search input {
   margin-left: 0.5rem;
@@ -126,6 +137,7 @@
 
 .table-nav--btn {
   cursor: pointer;
+  margin: 2px;
   padding: 5px 10px;
   background-color: var(--tertiary);
   border-radius: 5px;
@@ -135,4 +147,12 @@
 
 .table-nav--btn:disabled {
   background-color: var(--disabled);
+}
+
+.table-footer {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -12,6 +12,7 @@ export default function TableFilter({ filter, setFilter }) {
     <span className="search">
       <img src={search} alt="search icon" className="search-icon" />
       <input
+        className="input-search"
         type="text"
         value={value || ""}
         onChange={(e) => {

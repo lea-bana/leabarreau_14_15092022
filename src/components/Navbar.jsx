@@ -32,7 +32,7 @@ export default function Navbar() {
             <img
               className="nav-ico"
               src={icoList}
-              alt="Health Wealth logo brand name"
+              alt="Health Wealth logo current list"
             />
             <span>Current</span>
           </NavLink>
@@ -40,7 +40,7 @@ export default function Navbar() {
             <img
               className="nav-ico"
               src={icoAdd}
-              alt="Health Wealth logo brand name"
+              alt="Health Wealth logo add user"
             />
             <span>Create</span>
           </NavLink>
