@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+    Projet fictif de formation n°14/14 | OpenClassrooms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> PROBLEMATIQUE
+> Utilisation en interne d'une application de gestion RH représentant 90% de la dette technologique de l'entreprise
 
-## Available Scripts
+> BESOINS
 
-In the project directory, you can run:
+- Convertir l'application HRnet (code source 100% JQuery) en une application React
+- Convertir les plugins sources :
+  - sélecteur de date
+  - fenêtre modale
+  - menus déroulants
+  - tables de données
+- Comparer de performances entre l'ancienne et la nouvelle version
 
-### `npm start`
+## Compétences développées
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x] Refondre une application pour réduire la dette technique `JQUERY to REACT`
+- [x] Implémenter avec la programmation fonctionnelle `JAVASCRIPT`
+- [x] Créer un plugin et publier sa propre bibliothèque `REACT | NPM`
+- [x] Proposer un design graphique complet, harmonieux et cohérent avec l'identité de l'entreprise
+- [x] Déployer une application front-end `NPM`
+- [x] Analyser la performance d'une application web `LIGHTHOUSE`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Ressources fournies
 
-### `npm test`
+- [HRnet : code source](https://github.com/OpenClassrooms-Student-Center/P12_Front-end)
+- [Issues](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Bibliothèques
 
-### `npm run build`
+    REACT
+    leabmodal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Editeur recommandé
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Visual Studio code](https://code.visualstudio.com/)
 
-### `npm run eject`
+### Prérequis
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [Git](https://git-scm.com/) pour cloner les repos
+- [nodeJS](https://nodejs.org/fr/) (version 17.3.0) pour exécuter les commandes
+- [npm](https://www.npmjs.com/) (version 8.3.0) pour lancer l'application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Dépendances
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [react](https://fr.reactjs.org/docs/getting-started.html) (version 18.2.0)
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start) (version 6.4.1)
+- [prop-types](https://fr.reactjs.org/docs/typechecking-with-proptypes.html) (version 15.8.1)
+- [react-datepicker](https://reactdatepicker.com/) (version 4.8.0)
+- [date-fns](https://date-fns.org/docs/Getting-Started) (version 2.29.3)
+- [react-table](https://react-table.tanstack.com/docs/installation) (version 7.8.0)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Lancement du front-end
 
-## Learn More
+- [ ] Cloner le repo : `git clone https://github.com/lea-bana/leabarreau_14_15092022.git`
+- [ ] Aller dans ce dossier : `cd leabarreau_14_15092022`
+- [ ] Installer ses dépendances : `npm install`
+- [ ] Lancer l'application : `npm start`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+URL de visualisation du rendu web : http://localhost:3000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Installation (_english version_)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Recommanded IDE
 
-### Analyzing the Bundle Size
+- [Visual Studio code](https://code.visualstudio.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Prerequisites
 
-### Making a Progressive Web App
+- [Git](https://git-scm.com/) to clone repositories
+- [nodeJS](https://nodejs.org/fr/) to run commands
+- [npm](https://www.npmjs.com/) to run application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Dependencies
 
-### Advanced Configuration
+- [react](https://fr.reactjs.org/docs/getting-started.html) (version 18.2.0)
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start) (version 6.4.1)
+- [prop-types](https://fr.reactjs.org/docs/typechecking-with-proptypes.html) (version 15.8.1)
+- [react-datepicker](https://reactdatepicker.com/) (version 4.8.0)
+- [date-fns](https://date-fns.org/docs/Getting-Started) (version 2.29.3)
+- [react-table](https://react-table.tanstack.com/docs/installation) (version 7.8.0)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Installing and launching front-end
 
-### Deployment
+- [ ] Clone the repository: `git clone https://github.com/lea-bana/leabarreau_14_15092022.git`
+- [ ] Move to this folder: `cd leabarreau_14_15092022`
+- [ ] Install dependencies: `npm install`
+- [ ] Launch application: `npm start`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+Front-end is now rendered at URL http://localhost:3000
+```
