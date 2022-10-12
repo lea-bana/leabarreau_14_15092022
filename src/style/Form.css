@@ -72,6 +72,7 @@
 .input-wrapper input,
 select {
   padding: 5px;
+  border: none;
   border-bottom: 2px solid var(--tertiary);
   font-size: 1rem;
   border-radius: 0;
@@ -80,7 +81,6 @@ select {
 
 .input-wrapper select:focus {
   outline: none;
-  border-top: none;
   background-color: var(--secondary);
   color: var(--light);
 }
@@ -97,6 +97,7 @@ select {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem;
+  border: none;
   border-radius: 0.5rem;
   background-color: var(--tertiary);
   color: var(--light);

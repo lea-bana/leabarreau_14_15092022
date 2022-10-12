@@ -42,12 +42,6 @@ h3 {
 a {
   text-decoration: none;
 }
-input,
-select,
-textarea,
-button {
-  border: none;
-}
 
 input:focus,
 select:focus,
