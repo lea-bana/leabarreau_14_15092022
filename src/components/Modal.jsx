@@ -1,17 +1,21 @@
-import { useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
 import icoClose from "../assets/ico-cross-circle.svg";
 import icoConfirm from "../assets/ico-user-confirm.svg";
 
 import "../style/Modal.css";
 
-export default function Modal({ show, close, title, sub, msg }) {
-  const employeesList = useNavigate();
-
-  function goTo() {
-    employeesList(`/employees`);
-  }
-
+export default function Modal({
+  show,
+  close,
+  title,
+  sub,
+  msg,
+  btn1,
+  btn1ClassName,
+  btn2,
+  btn2ClassName,
+  redirect,
+}) {
   return createPortal(
     <>
       {show ? (
@@ -21,7 +25,7 @@ export default function Modal({ show, close, title, sub, msg }) {
               <img src={icoClose} alt="close icon" />
             </button>
             <img
-              className="confirm-employee-ico"
+              className="modal-icon"
               src={icoConfirm}
               alt="confirm employee icon"
             />
@@ -33,11 +37,14 @@ export default function Modal({ show, close, title, sub, msg }) {
               <p>{msg}</p>
             </main>
             <footer className="modal-footer">
-              <button className="return" onClick={close}>
-                Add employee
+              <button className={`modal-btn1 ${btn1ClassName}`} onClick={close}>
+                {btn1}
               </button>
-              <button className="result" onClick={goTo}>
-                Employees list
+              <button
+                className={`modal-btn2 ${btn2ClassName}`}
+                onClick={redirect}
+              >
+                {btn2}
               </button>
             </footer>
           </section>
