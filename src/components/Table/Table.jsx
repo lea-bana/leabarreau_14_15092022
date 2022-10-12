@@ -9,13 +9,21 @@ import {
 import React, { useMemo } from "react";
 import TableFilter from "./TableFilter";
 
+/**
+ * Table
+ * @returns {Reactnode}  jsx injected in DOM
+ */
+
 export default function Table() {
   //GET DATA
   let employeesList = JSON.parse(localStorage.getItem("employeesList")) || [];
 
   // useMemo hook to avoid re-rendering until the data changes
   const columns = useMemo(() => TABLE_COLUMNS, []);
-  const data = useMemo(() => employeesList, []);
+  const data = useMemo(
+    () => employeesList, // eslint-disable-next-line
+    []
+  );
 
   console.log(employeesList);
 
@@ -80,9 +88,9 @@ export default function Table() {
   // handle table state for different options
   const { globalFilter, pageIndex, pageSize } = state;
   return (
-    <section id="table">
-      <header>
-        <div className="show-entries">
+    <section className="table">
+      <header className="table-header">
+        <div className="table-header--entries">
           Show
           <select
             id="showEntries"
@@ -97,22 +105,27 @@ export default function Table() {
           </select>
           entries
         </div>
-        <h3>{`currently ${employeesList.length} employees`}</h3>
-        <TableFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        <h3 className="table-header--title">{`currently ${employeesList.length} employees`}</h3>
+        <TableFilter
+          className="table-header--search"
+          id="search"
+          filter={globalFilter}
+          setFilter={setGlobalFilter}
+        />
       </header>
-      <main>
-        <table id="employees" {...getTableProps()}>
+      <main className="table-main">
+        <table className="table-main--list" {...getTableProps()}>
           <thead>{theadContent}</thead>
           <tbody {...getTableBodyProps()}>{tbodyContent}</tbody>
         </table>
       </main>
       <footer className="table-footer">
-        <span>
+        <span className="table-footer--pageIndex">
           <strong>
             Page {pageIndex + 1} of {pageOptions.length}
           </strong>
         </span>
-        <span>
+        <span className="table-footer--nav">
           <button
             className="table-footer--btn"
             onClick={() => gotoPage(0)}
@@ -121,21 +134,21 @@ export default function Table() {
             « First
           </button>
           <button
-            className="table-footer--btn"
+            className="table-nav--btn"
             onClick={() => previousPage()}
             disabled={!canPreviousPage}
           >
             ‹ Previous
           </button>
           <button
-            className="table-footer--btn"
+            className="table-nav--btn"
             onClick={() => nextPage()}
             disabled={!canNextPage}
           >
             Next ›
           </button>
           <button
-            className="table-footer--btn"
+            className="table-nav--btn"
             onClick={() => gotoPage(pageCount - 1)}
             disabled={!canNextPage}
           >
