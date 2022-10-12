@@ -2,6 +2,11 @@ import Form from "../components/Form.jsx";
 import "../style/Home.css";
 import React, { useEffect } from "react";
 
+/**
+ * Home
+ * @returns {Reactnode}  jsx injected in DOM
+ */
+
 export default function Home() {
   useEffect(() => {
     document.title = "HRnet | Home";

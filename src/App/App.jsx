@@ -5,6 +5,12 @@ import Home from "../pages/Home.jsx";
 import Employees from "../pages/Employees.jsx";
 import Error from "../pages/Error.jsx";
 
+/**
+ * App
+ * Handling web app routes
+ * @returns routes
+ */
+
 export default function App() {
   return (
     <BrowserRouter>
