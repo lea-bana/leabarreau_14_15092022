@@ -1,8 +1,16 @@
 import React from "react";
 
-export default function Input({ id, label, type, value, index, handleChange }) {
+export default function Input({
+  className,
+  id,
+  label,
+  type,
+  value,
+  index,
+  handleChange,
+}) {
   return (
-    <div className={`input-wrapper ${id}`} key={index}>
+    <div className={`input-wrapper ${className}`} key={index}>
       <label htmlFor={id}>{label}</label>
       <input
         type={type}
@@ -10,6 +18,7 @@ export default function Input({ id, label, type, value, index, handleChange }) {
         value={value}
         onChange={handleChange}
         autoComplete="off"
+        required
       />
     </div>
   );
