@@ -41,6 +41,9 @@ h3 {
 button {
   border: none;
 }
+select {
+  outline: none;
+}
 
 a {
   text-decoration: none;
@@ -48,7 +51,21 @@ a {
 
 input:focus,
 select:focus,
-textarea:focus,
 button:focus {
   outline: none;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary) !important;
+  /* background-color: var(--tertiary-constrast) !important; */
+  /* border: 2px solid var(--tertiary); */
 }
