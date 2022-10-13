@@ -1,5 +1,6 @@
 import Table from "../components/Table/Table.jsx";
 import { useEffect } from "react";
+import React from "react";
 
 /**
  * Employees
