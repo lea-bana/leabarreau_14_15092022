@@ -41,6 +41,9 @@
 .dateOfBirth {
   order: 3;
 }
+.street {
+  order: 4;
+}
 
 .startDate {
   order: 5;
@@ -48,6 +51,9 @@
 
 .department {
   order: 6;
+}
+.stateAbbrev {
+  order: 7;
 }
 
 .input-wrapper label {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import icoAdd from "../assets/ico-user-add.svg";
 import Dropdown from "../components/Dropdown";
 import Input from "./Input";
@@ -70,8 +70,8 @@ export default function Form() {
 
     // COMPLETE / CORRECT DATA
     newEmployee.id = employeesList.length;
-    newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
     newEmployee.dateOfBirth = newEmployee.dateOfBirth.replace(/-/g, "/");
+    newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
 
     // STORE DATA
     window.localStorage.setItem("employeesList", JSON.stringify(employeesList));

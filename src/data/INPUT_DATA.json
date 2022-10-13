@@ -12,6 +12,12 @@
     "type": "text"
   },
   {
+    "className": "dateOfBirth",
+    "id": "dateOfBirth",
+    "label": "Date of Birth",
+    "type": "date"
+  },
+  {
     "className": "street address",
     "id": "street",
     "label": "Street",
@@ -28,5 +34,11 @@
     "id": "zipCode",
     "label": "Zip Code",
     "type": "text"
+  },
+  {
+    "className": "startDate",
+    "id": "startDate",
+    "label": "Start Date",
+    "type": "date"
   }
 ]
