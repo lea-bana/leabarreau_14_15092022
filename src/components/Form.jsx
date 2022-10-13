@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import icoAdd from "../assets/ico-user-add.svg";
-import Modal from "../components/Modal.jsx";
 import Dropdown from "../components/Dropdown";
 import Input from "./Input";
 import "../style/Form.css";
@@ -13,21 +12,6 @@ import DROPDOWN_DATA from "../data/DROPDOWN_DATA.json";
 //
 
 export default function Form() {
-  // MODAL MODULE SETTINGS
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
-  const redirectTo = useNavigate();
-  function goTo() {
-    redirectTo(`/employees`);
-  }
-  // useEffect(() => {
-  //   if (modal) {
-  //     setTimeout(() => {
-  //       redirectTo(`/employees`);
-  //     }, 8000);
-  //   }
-  // }, [modal, redirectTo]);
-
   // FORM SETTINGS
 
   const initialState = {
@@ -92,9 +76,6 @@ export default function Form() {
     // STORE DATA
     window.localStorage.setItem("employeesList", JSON.stringify(employeesList));
 
-    // OPEN MODAL
-    setModal(!modal);
-
     // RESET FORM
     setNewEmployee({ ...newEmployee }, e.target.reset());
     setNewEmployee(initialState);
@@ -136,19 +117,6 @@ export default function Form() {
       </section>
 
       {submit}
-
-      <Modal
-        show={modal}
-        close={toggle}
-        title={"Confirmation"}
-        msgL1={"New collaborator"}
-        msgL2={"successfully registred"}
-        btn1={"Add employee"}
-        btn1ClassName={"return"}
-        btn2={"Employees list"}
-        btn2ClassName={"redirect"}
-        redirect={goTo}
-      />
     </form>
   );
 }
