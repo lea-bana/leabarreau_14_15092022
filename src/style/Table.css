@@ -1,3 +1,17 @@
+:root {
+  --bg: #fafbf9;
+  --primary: #004d10;
+  --secondary: #e0d7b2;
+  --secondary-contrast: #e5dfcb;
+  --tertiary: #cad3ae;
+  --tertiary-constrast: #bec7a3;
+  --light: #fff;
+  --dark: #072010;
+  --error: rgb(188, 98, 89);
+  --disabled: #cfcfcf;
+  --table-row: #eef1e3;
+}
+
 .table {
   width: 90%;
   margin: auto;
@@ -67,12 +81,10 @@
   border-radius: 0.5rem;
   background-color: transparent;
   box-shadow: var(--tertiary-constrast) 0 0 50px 0.1px;
-  /* box-shadow: var(--secondary) 0 0 50px 0.1px; */
   width: 100%;
 }
 .table-main--list :nth-child(2) > * {
   font-family: "Open Sans Condensed";
-  color: var(--tertiary);
 }
 .table-main--list thead :first-child :first-child {
   border-top-left-radius: 0.5rem;
