@@ -25,8 +25,6 @@ export default function Table() {
     []
   );
 
-  console.log(employeesList);
-
   // TABLE INSTANCE
   const tableInstance = useTable(
     {

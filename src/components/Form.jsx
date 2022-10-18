@@ -8,7 +8,7 @@ import INPUT_DATA from "../data/INPUT_DATA.json";
 import DROPDOWN_DATA from "../data/DROPDOWN_DATA.json";
 import { Modal, useModal } from "leabmodal";
 import confirm from "../assets/ico-user-confirm.svg";
-import close from "../assets/ico-cross-circle.svg";
+import close from "../assets/cancel.png";
 
 //
 
@@ -141,7 +141,7 @@ export default function Form() {
         ))}
       </section>
 
-      <button type="submit" className="submit form-newEmployee--submit">
+      <button type="submit" className="submit">
         Save
       </button>
 

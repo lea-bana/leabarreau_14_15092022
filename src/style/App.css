@@ -5,16 +5,15 @@
 :root {
   --bg: #fafbf9;
   --primary: #004d10;
-  --secondary: #6c6753;
+  --secondary: #e0d7b2;
   --tertiary: #cad3ae;
   --tertiary-constrast: #bec7a3;
   --light: #fff;
   --dark: #072010;
-  --error: #f95;
+  --error: rgb(188, 98, 89);
   --disabled: #cfcfcf;
   --table-row: #eef1e3;
 }
-
 /* BODY */
 
 body {
