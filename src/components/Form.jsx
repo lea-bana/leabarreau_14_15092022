@@ -31,24 +31,24 @@ export default function Form() {
 
   const [newEmployee, setNewEmployee] = useState(initialState);
 
-  // const submit =
-  //   !newEmployee.firstName ||
-  //   !newEmployee.lastName ||
-  //   !newEmployee.dateOfBirth ||
-  //   !newEmployee.street ||
-  //   !newEmployee.city ||
-  //   !newEmployee.zipCode ||
-  //   !newEmployee.startDate ||
-  //   !newEmployee.stateAbbrev ||
-  //   !newEmployee.department ? (
-  //     <button type="submit" className="add-employee-button" disabled>
-  //       Save
-  //     </button>
-  //   ) : (
-  //     <button type="submit" className="add-employee-button">
-  //       Save
-  //     </button>
-  //   );
+  const submit =
+    !newEmployee.firstName ||
+    !newEmployee.lastName ||
+    !newEmployee.dateOfBirth ||
+    !newEmployee.street ||
+    !newEmployee.city ||
+    !newEmployee.zipCode ||
+    !newEmployee.startDate ||
+    !newEmployee.stateAbbrev ||
+    !newEmployee.department ? (
+      <button type="submit" className="submit" disabled>
+        Save
+      </button>
+    ) : (
+      <button type="submit" className="submit">
+        Save
+      </button>
+    );
 
   // MODAL MODULE SETTINGS
 
@@ -141,9 +141,7 @@ export default function Form() {
         ))}
       </section>
 
-      <button type="submit" className="submit">
-        Save
-      </button>
+      {submit}
 
       <Modal
         modal={isOpen}

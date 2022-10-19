@@ -5,7 +5,8 @@
 :root {
   --bg: #fafbf9;
   --primary: #004d10;
-  --secondary: #e0d7b2;
+  --secondary: #667d6b;
+  --secondary-contrast: #e0d7b2;
   --tertiary: #cad3ae;
   --tertiary-constrast: #bec7a3;
   --light: #fff;

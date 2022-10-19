@@ -1,10 +1,11 @@
 :root {
   --bg: #fafbf9;
   --primary: #004d10;
-  --secondary: #e0d7b2;
-  --secondary-contrast: #e5dfcb;
-  --tertiary: #cad3ae;
-  --tertiary-constrast: #bec7a3;
+  --secondary: #59705e;
+  --secondary-contrast: #e0d7b2;
+  --tertiary: #004d10;
+  --tertiary-light: #f1f1ec;
+  --tertiary-constrast: #d1d1c2;
   --light: #fff;
   --dark: #072010;
   --error: rgb(188, 98, 89);
@@ -132,7 +133,7 @@
 }
 .table-main--list tr:hover,
 .table-main--list tr:focus {
-  background-color: var(--tertiary);
+  background-color: var(--tertiary-constrast);
 }
 /* TABLE NAVIGATION */
 .table-navigation {
@@ -145,20 +146,23 @@
 
 .table-nav--btn:hover {
   background-color: var(--tertiary-constrast);
+  color: #072010;
 }
 
 .table-nav--btn {
   cursor: pointer;
   margin: 2px;
   padding: 5px 10px;
-  background-color: var(--tertiary);
+  color: var(--secondary-contrast);
+  background-color: var(--secondary);
   border-radius: 5px;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--secondary);
   line-height: 1.25rem;
 }
 
 .table-nav--btn:disabled {
   background-color: var(--disabled);
+  color: #072010;
 }
 
 .table-footer {
