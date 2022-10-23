@@ -96,8 +96,9 @@
 }
 .table-main--list th {
   padding: 5px;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: var(--light);
+  opacity: 68%;
 }
 .table-main--list th,
 .table-main--list td {
@@ -153,11 +154,12 @@
   cursor: pointer;
   margin: 2px;
   padding: 5px 10px;
-  color: var(--secondary-contrast);
+  color: var(--light);
   background-color: var(--secondary);
   border-radius: 5px;
   border: 1px solid var(--secondary);
   line-height: 1.25rem;
+  opacity: 68%;
 }
 
 .table-nav--btn:disabled {
