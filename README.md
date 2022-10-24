@@ -1,7 +1,7 @@
-    Projet fictif de formation n°14/14 | OpenClassrooms
+    Projet fictif de formation n°12/12 | OpenClassrooms
 
-> PROBLEMATIQUE
-> Utilisation en interne d'une application de gestion RH représentant 90% de la dette technologique de l'entreprise
+> PROBLEMATIQUE :
+> Utilisation en interne d'une application de gestion RH représentant la dette technologique de l'entreprise
 
 > BESOINS
 
@@ -41,8 +41,8 @@
 ### Prérequis
 
 - [Git](https://git-scm.com/) pour cloner les repos
-- [nodeJS](https://nodejs.org/fr/) (version 17.3.0) pour exécuter les commandes
-- [npm](https://www.npmjs.com/) (version 8.3.0) pour lancer l'application
+- [nodeJS](https://nodejs.org/fr/) (version 16.18.0) pour exécuter les commandes
+- [npm](https://www.npmjs.com/) (version 8.19.2) pour lancer l'application
 
 ### Dépendances
 
