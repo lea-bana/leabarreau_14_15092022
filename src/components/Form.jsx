@@ -194,13 +194,7 @@ export default function Form() {
           htmlFor={"id"}
         />
       </section>
-      {/* <button
-        type="submit"
-        className="submit"
-        onClick={() => buttonFunctions()}
-      >
-        Save
-      </button> */}
+
       {submit}
 
       {employeeCreated ? (

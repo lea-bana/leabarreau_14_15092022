@@ -10,7 +10,7 @@ const { actions, reducer } = createSlice({
   reducers: {
     addEmployee: (draft, action) => {
       draft.employees.push(action.payload);
-      localStorage.setItem("employeeList", JSON.stringify(draft.employees));
+      localStorage.setItem("employeesList", JSON.stringify(draft.employees));
       return;
     },
   },

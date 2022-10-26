@@ -1,2 +1,2 @@
 export const selectEmployee = (state) =>
-  JSON.parse(localStorage.getItem("employeeList"));
+  JSON.parse(localStorage.getItem("employeesList"));
