@@ -1,24 +1,55 @@
 import React from "react";
 
-export default function Dropdown({
+export function DropdownS({
   className,
-  id,
+  labelFor,
   label,
-  select,
-  handleChange,
+  options,
+  onChangeFunction,
 }) {
   return (
     <div className={`input-wrapper ${className}`}>
-      <label htmlFor={id}>{label}</label>
-      <select className="dropdownList" id={id} onChange={handleChange} required>
-        {select.map((item) => (
+      <label htmlFor={labelFor}>{label}</label>
+      <select
+        className="dropdownList"
+        name="state"
+        onChange={(e) => onChangeFunction(e.target.value)}
+        required
+      >
+        {options.map((item) => (
           <option
             title="dropdownOption"
             type="text"
-            value={item.value}
-            key={item.abbrev}
+            value={item.abbreviation}
+            key={item.abbreviation}
           >
-            {item.label}
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+export function DropdownD({
+  className,
+  labelFor,
+  label,
+  options,
+  onChangeFunction,
+}) {
+  return (
+    <div className={`input-wrapper ${className}`}>
+      <label htmlFor={labelFor}>{label}</label>
+      <select
+        className="dropdownList"
+        name="department"
+        onChange={(e) => onChangeFunction(e.target.value)}
+        required
+      >
+        {options.map((item) => (
+          <option title="dropdownOption" type="text" value={item} key={item}>
+            {item}
           </option>
         ))}
       </select>

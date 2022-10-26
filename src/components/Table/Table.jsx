@@ -8,6 +8,8 @@ import {
 } from "react-table";
 import React, { useMemo } from "react";
 import TableFilter from "./TableFilter";
+import { useSelector } from "react-redux";
+import { selectEmployee } from "../../utils/selector";
 
 /**
  * Table
@@ -16,7 +18,7 @@ import TableFilter from "./TableFilter";
 
 export default function Table() {
   //GET DATA
-  let employeesList = JSON.parse(localStorage.getItem("employeesList")) || [];
+  let employeesList = useSelector(selectEmployee);
 
   // useMemo hook to avoid re-rendering until the data changes
   const columns = useMemo(() => TABLE_COLUMNS, []);

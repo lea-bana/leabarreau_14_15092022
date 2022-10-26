@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import * as employeeActions from "../utils/employees";
 import icoAdd from "../assets/ico-user-add.svg";
-import Dropdown from "../components/Dropdown";
-import Input from "./Input";
+import { DropdownD, DropdownS } from "../components/Dropdown";
+// import Input from "./Input";
 import "../style/Form.css";
-import INPUT_DATA from "../data/INPUT_DATA.json";
-import DROPDOWN_DATA from "../data/DROPDOWN_DATA.json";
+// import INPUT_DATA from "../data/INPUT_DATA.json";
+import { states } from "../data/DROPDOWN_DATA";
 import { Modal, useModal } from "leabmodal";
 import confirm from "../assets/ico-user-confirm.svg";
 import close from "../assets/cancel.png";
@@ -15,62 +17,90 @@ import close from "../assets/cancel.png";
 //
 
 export default function Form() {
-  // FORM SETTINGS
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("AL");
+  const [zipCode, setZipCode] = useState("");
+  const [department, setDepartment] = useState("Sales");
+  const [employeeCreated, setEmployeeCreated] = useState(false);
+  const [employeeNotCreated, setEmployeeNotCreated] = useState(false);
+  const dispatch = useDispatch();
 
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    dateOfBirth: "",
-    street: "",
-    city: "",
-    zipCode: "",
-    stateAbbrev: "",
-    startDate: "",
-    department: "",
+  const employee = {
+    firstName: firstName,
+    lastName: lastName,
+    dateOfBirth: dateOfBirth,
+    startDate: startDate,
+    street: street,
+    city: city,
+    state: state,
+    zipCode: zipCode,
+    department: department,
   };
 
-  const [newEmployee, setNewEmployee] = useState(initialState);
+  const departments = [
+    "Sales",
+    "Marketing",
+    "Engineering",
+    "Human Resources",
+    "Legal",
+  ];
+
+  const buttonFunctions = (e) => {
+    // e.preventDefault();
+    if (
+      firstName !== "" &&
+      lastName !== "" &&
+      dateOfBirth !== "" &&
+      startDate !== "" &&
+      street !== "" &&
+      city !== "" &&
+      zipCode !== ""
+    ) {
+      dispatch(employeeActions.addEmployee(employee));
+      setEmployeeCreated(true);
+      toggle(e);
+    } else {
+      setEmployeeNotCreated(true);
+    }
+  };
+
+  // FORM SETTINGS
 
   const submit =
-    !newEmployee.firstName ||
-    !newEmployee.lastName ||
-    !newEmployee.dateOfBirth ||
-    !newEmployee.street ||
-    !newEmployee.city ||
-    !newEmployee.zipCode ||
-    !newEmployee.startDate ||
-    !newEmployee.stateAbbrev ||
-    !newEmployee.department ? (
-      <button type="submit" className="submit" disabled>
+    !firstName ||
+    !lastName ||
+    !dateOfBirth ||
+    !street ||
+    !city ||
+    !zipCode ||
+    !startDate ||
+    !department ? (
+      <button
+        type="submit"
+        className="submit"
+        onClick={() => buttonFunctions()}
+        disabled
+      >
         Save
       </button>
     ) : (
-      <button type="submit" className="submit">
+      <button
+        type="submit"
+        className="submit"
+        onClick={() => buttonFunctions()}
+      >
         Save
       </button>
     );
 
-  // MODAL MODULE SETTINGS
+  // // MODAL MODULE SETTINGS
 
   const { isOpen, toggle, escToClose } = useModal();
-
-  //ON CHANGE
-  const handleChange = (e) => {
-    setNewEmployee({ ...newEmployee, [e.target.id]: e.target.value.trim() });
-  };
-
-  // GET DATA
-  // avec les données mockées
-  //   let employeesList =
-  //     JSON.parse(window.localStorage.getItem("employeesList")) || EMPLOYEES_LIST;
-  let employeesList = [];
-  let employeesListLS = localStorage.getItem("employeesList");
-  if (employeesListLS) {
-    employeesList = JSON.parse(employeesListLS);
-  }
-
-  // detects when escape key pressed to close the modal
-  // and stop event propagation when occured
 
   useEffect(() => {
     window.addEventListener("keydown", escToClose);
@@ -82,80 +112,124 @@ export default function Form() {
     redirectTo("/employees");
   }
 
-  // ON SUBMIT
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // UPDATE DATA
-    employeesList.push(newEmployee);
-
-    // COMPLETE / CORRECT DATA
-    newEmployee.id = employeesList.length;
-    newEmployee.dateOfBirth = newEmployee.dateOfBirth.replace(/-/g, "/");
-    newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
-
-    // STORE DATA
-    window.localStorage.setItem("employeesList", JSON.stringify(employeesList));
-
-    // OPEN MODAL
-    toggle();
-
-    // RESET FORM
-    setNewEmployee({ ...newEmployee }, e.target.reset());
-  };
-
   return (
-    <form action="" id="add-employee-form" onSubmit={handleSubmit}>
+    <form action="" id="add-employee-form">
       <img className="add-employee-ico" src={icoAdd} alt="add employee icon" />
-
       <section className="form-data">
         <fieldset id="addressContainer">
           <legend className="addressGroup">Address</legend>
+          <div className="input-wrapper street address">
+            <label htmlFor="street">Street</label>
+            <input
+              type="text"
+              id="street"
+              onChange={(e) => setStreet(e.target.value)}
+            />
+          </div>
+          <div className="input-wrapper city address">
+            <label htmlFor="City">City</label>
+            <input
+              type="text"
+              id="city"
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </div>
+          <div className="input-wrapper zipCode address">
+            <label htmlFor="Zip Code">Zip Code</label>
+            <input
+              type="text"
+              id="zipCode"
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </div>
+          <DropdownS
+            className={"stateAbbrev address"}
+            label={"State"}
+            labelFor={"state"}
+            htmlFor={"id"}
+            type={"text"}
+            options={states}
+            onChangeFunction={setState}
+          />
         </fieldset>
 
-        {INPUT_DATA.map((data, index) => (
-          <Input
-            key={index}
-            className={data.className}
-            htmlFor={data.id}
-            label={data.label}
-            type={data.type}
-            id={data.id}
-            value={newEmployee[index]}
-            handleChange={handleChange}
-            autoComplete="off"
+        <div className="input-wrapper firstName">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            onChange={(e) => setFirstName(e.target.value)}
           />
-        ))}
-
-        {DROPDOWN_DATA.map((data, index) => (
-          <Dropdown
-            key={index}
-            className={data.className}
-            htmlFor={data.id}
-            label={data.label}
-            type={data.type}
-            id={data.id}
-            select={data.select}
-            handleChange={handleChange}
+        </div>
+        <div className="input-wrapper lastName">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            onChange={(e) => setLastName(e.target.value)}
           />
-        ))}
+        </div>
+        <div className="input-wrapper dateOfBirth">
+          <label htmlFor="dateOfBirth">Date Of Birth</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            onChange={(e) => setDateOfBirth(e.target.value)}
+          />
+        </div>
+        <div className="input-wrapper startDate">
+          <label htmlFor="startDate">Start Date</label>
+          <input
+            type="date"
+            id="startDate"
+            onChange={(e) => setStartDate(e.target.value)}
+          />
+        </div>
+        <DropdownD
+          className={"department"}
+          options={departments}
+          onChangeFunction={setDepartment}
+          label={"Department"}
+          labelFor={"department"}
+          htmlFor={"id"}
+        />
       </section>
-
+      {/* <button
+        type="submit"
+        className="submit"
+        onClick={() => buttonFunctions()}
+      >
+        Save
+      </button> */}
       {submit}
 
-      <Modal
-        modal={isOpen}
-        close={toggle}
-        x={close}
-        icon={confirm}
-        title="Confirmation"
-        msgL1="New collaborator"
-        msgL2="successfully registred"
-        btn1="Add an employee"
-        btn2="Employees list"
-        redirect={goTo}
-        autofocus
-      />
+      {employeeCreated ? (
+        <Modal
+          modal={isOpen}
+          close={toggle}
+          x={close}
+          icon={confirm}
+          title="Confirmation"
+          msgL1="New collaborator"
+          msgL2="successfully registred"
+          btn1="Add an employee"
+          btn2="Employees list"
+          redirect={goTo}
+          autofocus
+        />
+      ) : null}
+      {employeeNotCreated ? (
+        <Modal
+          modal={isOpen}
+          close={toggle}
+          x={close}
+          title="NOT ALLOWED"
+          btn1="Add an employee"
+          btn2="Employees list"
+          redirect={goTo}
+          autofocus
+        />
+      ) : null}
     </form>
   );
 }
