@@ -4,15 +4,11 @@ import { useNavigate } from "react-router-dom";
 import * as employeeActions from "../utils/employees";
 import icoAdd from "../assets/ico-user-add.svg";
 import { DropdownD, DropdownS } from "../components/Dropdown";
-// import Input from "./Input";
 import "../style/Form.css";
-// import INPUT_DATA from "../data/INPUT_DATA.json";
 import { states } from "../data/DROPDOWN_DATA";
 import { Modal, useModal } from "leabmodal";
 import confirm from "../assets/ico-user-confirm.svg";
 import close from "../assets/cancel.png";
-
-//
 
 //
 
