@@ -59,7 +59,7 @@ export default function Form() {
     ) {
       dispatch(employeeActions.addEmployee(employee));
       setEmployeeCreated(true);
-      toggle(e);
+      //toggle(e);
     } else {
       setEmployeeNotCreated(true);
     }
@@ -205,10 +205,9 @@ export default function Form() {
           btn1="Add an employee"
           btn2="Employees list"
           redirect={goTo}
-          autofocus
         />
       ) : null}
-      {employeeNotCreated ? (
+      {/* {employeeNotCreated ? (
         <Modal
           modal={isOpen}
           close={toggle}
@@ -219,7 +218,7 @@ export default function Form() {
           redirect={goTo}
           autofocus
         />
-      ) : null}
+      ) : null} */}
     </form>
   );
 }
