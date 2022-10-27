@@ -13,7 +13,7 @@ export function DropdownS({
       <select
         className="dropdownList"
         name="state"
-        onChange={(e) => onChangeFunction(e.target.value)}
+        onClick={(e) => onChangeFunction(e.target.value)}
         required
       >
         {options.map((item) => (
@@ -44,7 +44,7 @@ export function DropdownD({
       <select
         className="dropdownList"
         name="department"
-        onChange={(e) => onChangeFunction(e.target.value)}
+        onClick={(e) => onChangeFunction(e.target.value)}
         required
       >
         {options.map((item) => (
