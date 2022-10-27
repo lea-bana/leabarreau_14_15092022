@@ -47,7 +47,7 @@ export default function Form() {
   ];
 
   const buttonFunctions = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     if (
       firstName !== "" &&
       lastName !== "" &&
@@ -59,7 +59,7 @@ export default function Form() {
     ) {
       dispatch(employeeActions.addEmployee(employee));
       setEmployeeCreated(true);
-      //toggle(e);
+      toggle();
     } else {
       setEmployeeNotCreated(true);
     }
@@ -109,7 +109,7 @@ export default function Form() {
   }
 
   return (
-    <form action="" id="add-employee-form">
+    <form action="" id="add-employee-form" onSubmit={(e) => buttonFunctions(e)}>
       <img className="add-employee-ico" src={icoAdd} alt="add employee icon" />
       <section className="form-data">
         <fieldset id="addressContainer">
